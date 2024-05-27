@@ -34,6 +34,13 @@ public class User {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	@Column(nullable = false)
 	private String password;
+	public User() {
+	}
+	public User(Long id, String username, Cart cart) {
+		this.id = id;
+		this.username = username;
+		this.cart = cart;
+	}
 	public String getPassword(){
 		return password;
 	}
