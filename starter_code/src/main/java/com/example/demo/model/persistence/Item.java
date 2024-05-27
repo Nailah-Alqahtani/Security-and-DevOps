@@ -59,6 +59,14 @@ public class Item {
 			return false;
 		return true;
 	}
+	public Item() {
+	}
+	public Item(Long id, String name, String description, BigDecimal price) {
+		this.id = id;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
 
 	public Long getId() {
 		return id;
