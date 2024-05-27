@@ -57,7 +57,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void addToCart() {
+	public void testAddToCart() {
 		when(userRepository.findByUsername("test")).thenReturn(getUser());
 		when(itemRepository.findById(1L)).thenReturn(Optional.of(getItem1()));
 		ModifyCartRequest request = new ModifyCartRequest();
@@ -82,7 +82,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void removeFromCart() {
+	public void testRemoveFromCart() {
 		when(userRepository.findByUsername("test")).thenReturn(getUser());
 		when(itemRepository.findById(2L)).thenReturn(Optional.of(getItem2()));
 		ModifyCartRequest request = new ModifyCartRequest();
@@ -107,7 +107,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void getAllItems() {
+	public void testGetAllItems() {
 		when(itemRepository.findAll()).thenReturn(getItems());
 		ResponseEntity<List<Item>> response = itemController.getItems();
 		Assert.assertNotNull(response);
@@ -116,7 +116,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void getItemById() {
+	public void testGetItemById() {
 		when(itemRepository.findById(1L)).thenReturn(Optional.of(getItem1()));
 		ResponseEntity<Item> response = itemController.getItemById(1L);
 		Assert.assertNotNull(response);
@@ -125,7 +125,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void submitOrder(){
+	public void testSubmitOrder(){
 		when(userRepository.findByUsername("test")).thenReturn(getUser());
 
 		final ResponseEntity<UserOrder> response = orderController.submit("test");
@@ -142,7 +142,7 @@ public class SareetaApplicationTests {
 	}
 
 	@Test
-	public void getOrdersForUser() {
+	public void testGetOrdersForUser() {
 		User user = getUser();
 		when(userRepository.findByUsername("test")).thenReturn(user);
 		when(orderRepository.findByUser(user)).thenReturn(getUserOrders());
